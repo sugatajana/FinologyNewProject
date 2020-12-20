@@ -1,0 +1,93 @@
+﻿@model Model.mUser
+@{
+
+    ViewBag.Title = "Finology Ventures Pvt. Ltd.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="~/IFSCScript.js"></script>
+</head>
+<body>
+    <h2 style="text-align:center" class="mt-4">Bank Details By IFSC Code</h2><br /><hr />
+    <div class="container-fluid mt-4">
+        <form id="frmUser" autocomplete="off">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.userName, new { @class = "control-label mb-10" })<span style='color:Red; font-weight:700'>&nbsp;&nbsp;*</span>
+                        @Html.TextBoxFor(model => model.userName, new { @class = "form-control required", id = "txtUserName" })
+                        @Html.ValidationMessageFor(model => model.userName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.bankAccountNumber, new { @class = "control-label mb-10" })<span style='color:Red; font-weight:700'>&nbsp;&nbsp;*</span>
+                        @Html.PasswordFor(model => model.bankAccountNumber, new { @class = "form-control required", id = "txtBankAccountNumber" })
+                        @Html.ValidationMessageFor(model => model.bankAccountNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.confirmBankAccountNumber, new { @class = "control-label mb-10" })<span style='color:Red; font-weight:700'>&nbsp;&nbsp;*</span>
+                        @Html.TextBoxFor(model => model.confirmBankAccountNumber, new { @class = "form-control required", id = "txtConfirmBankAccountNumber" })
+                        @Html.ValidationMessageFor(model => model.confirmBankAccountNumber, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.IFSCDetails, new { @class = "control-label mb-10" })<span style='color:Red; font-weight:700'>&nbsp;&nbsp;*</span>
+                        @Html.TextBoxFor(model => model.IFSCDetails, new { @class = "form-control required", id = "txtIFSCDetails" })
+                        @Html.ValidationMessageFor(model => model.IFSCDetails, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="mt-4">
+                    <button type="button" class="btn btn-primary btn-lg" id="btnSubmit">Submit</button>
+                </div>
+            </div>
+        </form>
+        <div class="col-md-12 mt-4">
+            <div class="table-responsive">
+                <table id="tblBankDetails" class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>BRANCH</th>
+                            <th>CENTRE</th>
+                            <th>DISTRICT</th>
+                            <th>STATE</th>
+                            <th>ADDRESS</th>
+                            <th>CONTACT</th>
+                            <th>MICR</th>
+                            <th>UPI</th>
+                            <th>RTGS</th>
+                            <th>CITY</th>
+                            <th>NEFT</th>
+                            <th>IMPS</th>
+                            <th>BANK</th>
+                            <th>BANKCODE</th>
+                            <th>IFSC</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbodyBankDetails">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    
+
+
+
